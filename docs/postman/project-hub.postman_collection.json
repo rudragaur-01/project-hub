@@ -1,0 +1,448 @@
+{
+  "info": {
+    "_postman_id": "208937bd-831c-4b7c-9ec2-ddd692f156e0",
+    "name": "project-hub",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39113210"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Demo User1234\",\n  \"email\": \"member@example.com\",\n  \"password\": \"password123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"demo@example.com\",\n  \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "refresh token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refreshToken\": \"34428d9bd9a640cd60df8cb65871243f391886a6316ad870fb0a017c86849928\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/auth/refresh",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "auth",
+            "refresh"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List projects",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create project",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"My New Project\",\n  \"description\": \"Optional project description\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get one project",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add1b60746af40e881adea",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add1b60746af40e881adea"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update project",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Project Name\",\n  \"description\": \"Updated description\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add1b60746af40e881adea",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add1b60746af40e881adea"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete project",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add2eba2a7a3f169157b6b",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add2eba2a7a3f169157b6b"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get project members",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add1b60746af40e881adea/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add1b60746af40e881adea",
+            "members"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invite member",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"member@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add1b60746af40e881adea/invite",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add1b60746af40e881adea",
+            "invite"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create task",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement login page\",\n  \"description\": \"Add form and validation\",\n  \"status\": \"todo\",\n  \"priority\": \"high\",\n  \"dueDate\": \"2025-03-15\",\n  \"assigneeId\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add1b60746af40e881adea/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add1b60746af40e881adea",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update task",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTk5NDgsImV4cCI6MTc3MzAwMDg0OH0.xhRArhfEzsAQJKj9ueNFLBtdVD0am6_9n7F4gEtCjkc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement login page (updated)\",\n  \"description\": \"Add form and validation\",\n  \"status\": \"in_progress\",\n  \"priority\": \"medium\",\n  \"dueDate\": \"2025-03-20\",\n  \"comments\": [\n    { \"author\": \"Dev\", \"text\": \"Started work\", \"date\": \"2025-03-09T10:00:00.000Z\" }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/projects/69add1b60746af40e881adea/tasks/69add46ea2a7a3f169157b89",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "projects",
+            "69add1b60746af40e881adea",
+            "tasks",
+            "69add46ea2a7a3f169157b89"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWFkZDBhNzA3NDZhZjQwZTg4MWFkZTIiLCJpYXQiOjE3NzI5OTg5NDcsImV4cCI6MTc3Mjk5OTg0N30.0GfICjH3Zsja040SGkYTgjjziv1QfTys5WXZONmunUQ",
+        "type": "string"
+      }
+    ]
+  }
+}
