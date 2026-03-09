@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { toast } from "react-toastify";
 import { useAuth } from "./AuthContext";
 import api from "@/lib/api";
 
@@ -23,12 +24,18 @@ export function ProjectsProvider({ children }) {
   }, [isAuthenticated]);
 
   const addProject = useCallback(async (project) => {
-    const { data } = await api.post("/api/projects", {
-      name: project.name,
-      description: project.description,
-    });
-    setProjects((prev) => [...prev, data]);
-    return data;
+    try {
+      const { data } = await api.post("/api/projects", {
+        name: project.name,
+        description: project.description,
+      });
+      setProjects((prev) => [...prev, data]);
+      toast.success("Project created successfully!");
+      return data;
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Failed to create project");
+      throw err;
+    }
   }, []);
 
   const getProject = useCallback(
@@ -70,16 +77,28 @@ export function ProjectsProvider({ children }) {
   }, []);
 
   const updateProject = useCallback(async (projectId, updates) => {
-    const { data } = await api.patch(`/api/projects/${projectId}`, updates);
-    setProjects((prev) =>
-      prev.map((p) => (p.id === projectId ? data : p))
-    );
-    return data;
+    try {
+      const { data } = await api.patch(`/api/projects/${projectId}`, updates);
+      setProjects((prev) =>
+        prev.map((p) => (p.id === projectId ? data : p))
+      );
+      toast.success("Project updated successfully!");
+      return data;
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Failed to update project");
+      throw err;
+    }
   }, []);
 
   const deleteProject = useCallback(async (projectId) => {
-    await api.delete(`/api/projects/${projectId}`);
-    setProjects((prev) => prev.filter((p) => p.id !== projectId));
+    try {
+      await api.delete(`/api/projects/${projectId}`);
+      setProjects((prev) => prev.filter((p) => p.id !== projectId));
+      toast.success("Project deleted successfully!");
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Failed to delete project");
+      throw err;
+    }
   }, []);
 
   return (

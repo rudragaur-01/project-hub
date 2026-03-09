@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import api from "@/lib/api";
 
 const AuthContext = createContext();
@@ -34,8 +35,11 @@ export function AuthProvider({ children }) {
       localStorage.setItem("pm_token", data.token);
       localStorage.setItem("pm_refresh_token", data.refreshToken);
       localStorage.setItem("pm_user", JSON.stringify(data.user));
+      toast.success("Welcome back! You're signed in.");
     } catch (err) {
-      setError(err.response?.data?.error || "Login failed");
+      const msg = err.response?.data?.error || "Login failed";
+      setError(msg);
+      toast.error(msg);
     } finally {
       setIsLoading(false);
     }
@@ -51,8 +55,11 @@ export function AuthProvider({ children }) {
       localStorage.setItem("pm_token", data.token);
       localStorage.setItem("pm_refresh_token", data.refreshToken);
       localStorage.setItem("pm_user", JSON.stringify(data.user));
+      toast.success("Account created! You're signed in.");
     } catch (err) {
-      setError(err.response?.data?.error || "Registration failed");
+      const msg = err.response?.data?.error || "Registration failed";
+      setError(msg);
+      toast.error(msg);
     } finally {
       setIsLoading(false);
     }
@@ -65,6 +72,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("pm_token");
     localStorage.removeItem("pm_refresh_token");
     localStorage.removeItem("pm_user");
+    toast.info("You've been signed out.");
   };
 
   return (
